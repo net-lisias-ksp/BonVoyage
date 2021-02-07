@@ -2,12 +2,14 @@
 Automagic Industries brings you a new autopilot, which reduces driving accidents by 100%.
 
 # Changelog
-## 1.2.1
+## 1.3.0
 ### Changes
+- Rebuild for KSP 1.11.1
 - Kerbals can move behind the scene too (with a blinding speed of 0.5m/s - depends on the celestial body)
-- Usage of batteries is switched off during system check and user is notified about it when there isn't enough of power to recharge a rover
+- Usage of batteries is switched off during system check and user is notified about it when there isn't enough power to recharge a rover
 - Chinese localization by Raven-233486
 - French localization by vinix38
+- Added module for stock EVA construction
 
 
 ## 1.2.0 - New path
