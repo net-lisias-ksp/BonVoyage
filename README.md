@@ -5,6 +5,7 @@ Automagic Industries brings you a new autopilot, which reduces driving accidents
 ## 1.3.1
 ### Changes
 - Chinese localization updated
+- Russian localization by kovakthemost
 
 ## 1.3.0
 ### Changes
