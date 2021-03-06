@@ -6,6 +6,12 @@ Automagic Industries brings you a new autopilot, which reduces driving accidents
 ### Changes
 - Chinese localization updated
 - Russian localization by kovakthemost
+- Added BonVoyage to Mk2 Lander Can
+
+### Fixes
+- Fixed usage of fuel cells with infinite propellant cheat enabled and no fuel tanks present
+- Fixed wrong count of operable wheels with KSPWheel module when "Wear and damage" setting was set to NONE
+
 
 ## 1.3.0
 ### Changes

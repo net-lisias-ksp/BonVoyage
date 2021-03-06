@@ -506,16 +506,8 @@ namespace BonVoyage
                 float maxSafeSpeed = 0f; // We compare this value later with maxDrivenSpeed to eliminate unreal gear ratios
                 if (wheelDamage != null)
                 {
-                    if ((float)wheelDamage.Fields.GetValue("loadStress") == 0)
-                    {
-                        inTheAir++;
-                        continue;
-                    }
-                    else
-                    {
-                        operable++;
-                        maxSafeSpeed = (float)wheelDamage.Fields.GetValue("maxSafeSpeed");
-                    }
+                    operable++;
+                    maxSafeSpeed = (float)wheelDamage.Fields.GetValue("maxSafeSpeed");
                 }
 
                 // Check motorized wheels
@@ -622,7 +614,7 @@ namespace BonVoyage
             }
 
             // Get fuel amount if fuel cells are used
-            if (fuelCells.Use)
+            if (fuelCells.Use && !CheatOptions.InfinitePropellant)
             {
                 IResourceBroker broker = new ResourceBroker();
                 var iList = fuelCells.InputResources;
