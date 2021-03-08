@@ -180,6 +180,20 @@ namespace BonVoyage
             }
         }
 
+
+        /// <summary>
+        /// Height offset
+        /// </summary>
+        internal static double HeightOffset
+        {
+            get { return configuration.GetValue<double>("heightOffset", 0); }
+            set
+            {
+                configuration.SetValue("heightOffset", value);
+                configuration.save();
+            }
+        }
+
         #endregion
 
 

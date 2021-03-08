@@ -29,7 +29,7 @@ namespace BonVoyage
         internal static RectOffset settingsElementPadding = new RectOffset(5, 5, 10, 10);
         internal const float settingsWindowSpacing = 3f;
         internal const float settingsMinWidth = 140f;
-        internal const float settingsMinHeight = 266f;
+        internal const float settingsMinHeight = 336f;
         internal const float settingsWindowWidth = settingsMinWidth + 20f;
         internal const float settingsWindowHeight = settingsMinHeight + 20f;
         internal static readonly Vector2 settingsWindowAnchorMin = new Vector2(0.5f, 0.5f);

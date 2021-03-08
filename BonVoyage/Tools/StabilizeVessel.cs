@@ -179,7 +179,7 @@ namespace BonVoyage
 
             Vector3 up = (v.transform.position - FlightGlobals.currentMainBody.transform.position).normalized;
 
-            if (downMovement < minDownMovement)
+            if (downMovement < minDownMovement + Configuration.HeightOffset)
                 return;
 
             downMovement -= minDownMovement;

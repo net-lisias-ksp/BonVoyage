@@ -56,6 +56,17 @@ namespace BonVoyage
                     TooltipExtension.DeferTooltip(new DialogGUIToggle(model.GetTCToggleState(), Localizer.Format("#LOC_BV_Toolbar_TC"), model.TCChecked, 135f) { tooltipText = Localizer.Format("#LOC_BV_Toolbar_TC_Tooltip") })
                 )
             ));
+
+            AddChild(new DialogGUISpace(4f));
+
+            DialogGUITextInput heightOffsetField = new DialogGUITextInput("", false, 20, (string s) => { model.HeightOffset = s; return s; }, model.GetHeightOffset, TMPro.TMP_InputField.ContentType.DecimalNumber, CommonWindowProperties.buttonHeight);
+            model.AddLockControlToTextField(heightOffsetField);
+            AddChild(new DialogGUIVerticalLayout(
+                new DialogGUILabel(Localizer.Format("#LOC_BV_HeightOffset")),
+                new DialogGUIHorizontalLayout(TextAnchor.MiddleLeft,
+                    heightOffsetField,
+                    new DialogGUILabel(Localizer.Format("m")))
+            ));
         }
 
 
@@ -66,7 +77,7 @@ namespace BonVoyage
             {
                 return new Rect(
                     (mainWindowPosition.x / GameSettings.UI_SCALE + CommonWindowProperties.mainWindowWidth / 2 + CommonWindowProperties.settingsWindowWidth / 2) / Screen.width + 0.5f,
-                    (mainWindowPosition.y / GameSettings.UI_SCALE + CommonWindowProperties.mainWindowHeight / 2 - CommonWindowProperties.settingsWindowHeight / 2 - 20) / Screen.height + 0.5f, 
+                    (mainWindowPosition.y / GameSettings.UI_SCALE + CommonWindowProperties.mainWindowHeight / 2 - CommonWindowProperties.settingsWindowHeight / 2 - 11) / Screen.height + 0.5f, 
                     CommonWindowProperties.settingsWindowWidth, CommonWindowProperties.settingsWindowHeight);
             }
         }

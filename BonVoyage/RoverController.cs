@@ -884,7 +884,7 @@ namespace BonVoyage
 
             vessel.latitude = latitude;
             vessel.longitude = longitude;
-            vessel.altitude = altitude + vesselHeightFromTerrain;
+            vessel.altitude = altitude + vesselHeightFromTerrain + Configuration.HeightOffset;
 
             return true;
         }

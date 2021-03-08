@@ -1,4 +1,5 @@
-﻿
+﻿using System;
+using TMPro;
 
 namespace BonVoyage
 {
@@ -13,6 +14,19 @@ namespace BonVoyage
         private bool kspSkin = true;
         private bool kspToolbarChecked = true;
         private bool toolbarContinuedChecked = false;
+        private double heightOffset = 0f;
+        internal string HeightOffset
+        {
+            get { return heightOffset.ToString(); }
+            set
+            {
+                if ((value.Length == 0) || (value == "."))
+                    heightOffset = 0f;
+                else
+                    heightOffset = Convert.ToDouble(value);
+                Configuration.HeightOffset = heightOffset;
+            }
+        }
 
 
         /// <summary>
@@ -30,6 +44,7 @@ namespace BonVoyage
             showBiome = Configuration.ShowBiome;
             kspToolbarChecked = Configuration.KSPToolbar;
             toolbarContinuedChecked = Configuration.ToolbarContinued;
+            heightOffset = Configuration.HeightOffset;
         }
 
 
@@ -207,6 +222,42 @@ namespace BonVoyage
         internal bool GetTCToggleState()
         {
             return toolbarContinuedChecked;
+        }
+
+
+        /// <summary>
+        /// Add control lock/unlock listeners to a text field
+        /// </summary>
+        /// <param name="text"></param>
+        private void TMPFieldOnSelect(string text)
+        {
+            InputLockManager.SetControlLock(ControlTypes.KEYBOARDINPUT | ControlTypes.UI, "BonVoyageInputFieldLock");
+        }
+        private void TMPFieldOnDeselect(string text)
+        {
+            InputLockManager.RemoveControlLock("BonVoyageInputFieldLock");
+        }
+        internal void AddLockControlToTextField(DialogGUITextInput field)
+        {
+            field.OnUpdate = () => {
+                if (field.uiItem != null)
+                {
+                    field.OnUpdate = () => { };
+                    TMP_InputField TMPField = field.uiItem.GetComponent<TMP_InputField>();
+                    TMPField.onSelect.AddListener(TMPFieldOnSelect);
+                    TMPField.onDeselect.AddListener(TMPFieldOnDeselect);
+                }
+            };
+        }
+
+
+        /// <summary>
+        ///  Return saved height offset
+        /// </summary>
+        /// <returns></returns>
+        internal string GetHeightOffset()
+        {
+            return HeightOffset;
         }
 
     }

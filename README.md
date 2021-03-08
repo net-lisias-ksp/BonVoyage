@@ -7,6 +7,7 @@ Automagic Industries brings you a new autopilot, which reduces driving accidents
 - Chinese localization updated
 - Russian localization by kovakthemost
 - Added BonVoyage to Mk2 Lander Can
+- Added height offset for rovers to the Settings
 
 ### Fixes
 - Fixed usage of fuel cells with infinite propellant cheat enabled and no fuel tanks present
