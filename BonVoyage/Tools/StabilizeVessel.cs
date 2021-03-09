@@ -121,15 +121,16 @@ namespace BonVoyage
         private static void Stabilize(Vessel v)
         {
             // First, we rotate, then move burrowed vessel up and then down if it's too high
-            if (moveVesselUp)
-            {
-                if (!disableRotation)
-                    Rotate(v);
-                MoveUp(v);
-                moveVesselUp = false;
-            }
-            else
-                MoveDown(v);
+            // We don't need to move down. Stock physics easing can handle it itself.
+            //if (moveVesselUp)
+            //{
+            if (!disableRotation)
+                Rotate(v);
+            MoveUp(v);
+                //moveVesselUp = false;
+            //}
+            //else
+            //    MoveDown(v);
 
             v.ResetGroundContact();
             v.IgnoreGForces(20);

@@ -12,6 +12,7 @@ Automagic Industries brings you a new autopilot, which reduces driving accidents
 ### Fixes
 - Fixed usage of fuel cells with infinite propellant cheat enabled and no fuel tanks present
 - Fixed wrong count of operable wheels with KSPWheel module when "Wear and damage" setting was set to NONE
+- Fixed detection of usable converters when fuel cell contains more modules of type ModuleResourceConverter
 
 
 ## 1.3.0

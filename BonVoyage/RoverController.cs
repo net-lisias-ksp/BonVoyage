@@ -215,24 +215,28 @@ namespace BonVoyage
                 List<ModuleResourceConverter> mrc = vessel.FindPartModulesImplementing<ModuleResourceConverter>();
                 for (int i = 0; i < mrc.Count; i++)
                 {
-                    bool found = false;
+                    double ecRatio = 0;
                     try
                     {
-                        var ec = mrc[i].outputList.Find(x => x.ResourceName == "ElectricCharge");
-                        fuelCells.OutputValue += ec.Ratio;
-                        found = true;
+                        var ec = mrc[i].outputList.Find(x => x.ResourceName == "ElectricCharge"); // NullArgumentException when not found
+                        ecRatio = ec.Ratio;
                     }
-                    catch
-                    {
-                        found = false;
-                    }
+                    catch { }
 
-                    if (found)
+                    if (ecRatio > 0)
                     {
                         // Add input resources
                         var iList = mrc[i].inputList;
                         for (int r = 0; r < iList.Count; r++)
                         {
+                            // Check if we have fuel for converter. If not, then continue without adding output ratio.
+                            if (!CheatOptions.InfinitePropellant && r == 0)
+							{
+                                IResourceBroker broker = new ResourceBroker();
+                                if (broker.AmountAvailable(vessel.rootPart, iList[r].ResourceName, 1, ResourceFlowMode.ALL_VESSEL) == 0)
+                                    break;
+                            }
+
                             var ir = fuelCells.InputResources.Find(x => x.Name == iList[r].ResourceName);
                             if (ir == null)
                             {
@@ -241,6 +245,10 @@ namespace BonVoyage
                                 fuelCells.InputResources.Add(ir);
                             }
                             ir.Ratio += iList[r].Ratio;
+
+                            // Add EC ration to output
+                            if (r == 0)
+                                fuelCells.OutputValue += ecRatio;
                         }
                     }
                 }
