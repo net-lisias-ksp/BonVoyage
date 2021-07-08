@@ -2,6 +2,14 @@
 Automagic Industries brings you a new autopilot, which reduces driving accidents by 100%.
 
 # Changelog
+## 1.4.0
+### Changes
+- Rebuild for KSP 1.12.1
+
+### Fixes
+- Added patch for slim suit
+
+
 ## 1.3.1
 ### Changes
 - Chinese localization updated
