@@ -424,6 +424,9 @@ namespace BonVoyage
                     // Near future fission reactors
                     if (module.moduleName == "FissionGenerator")
                         otherPower += double.Parse(module.Fields.GetValue("CurrentGeneration").ToString());
+                    // NFE + System Heat
+                    if (module.moduleName == "ModuleSystemHeatFissionReactor")
+                        otherPower += double.Parse(module.Fields.GetValue("CurrentElectricalGeneration").ToString());
 
                     // KSP Interstellar generators
                     if ((module.moduleName == "ThermalElectricEffectGenerator") || (module.moduleName == "IntegratedThermalElectricPowerGenerator") || (module.moduleName == "ThermalElectricPowerGenerator")
