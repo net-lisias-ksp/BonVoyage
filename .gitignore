@@ -46,3 +46,5 @@ BonVoyage/BonVoyage.csproj
 thread images/
 .vs/BonVoyage/v15/Server/sqlite3/storage.ide-shm
 .vs/BonVoyage/v15/Server/sqlite3/storage.ide-wal
+.vs/BonVoyage/project-colors.json
+.vs/

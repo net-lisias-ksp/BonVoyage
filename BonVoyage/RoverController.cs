@@ -324,6 +324,8 @@ namespace BonVoyage
                 double speedReduction = (requiredPower - (electricPower_Solar + electricPower_Other)) / requiredPower;
                 if (speedReduction <= 0.75)
                     averageSpeed = averageSpeed * (1 - speedReduction);
+                else
+                    averageSpeed = 0;
             }
 
             // If required power is greater then other power generated, then average speed at night can be lowered up to 75%

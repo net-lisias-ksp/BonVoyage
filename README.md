@@ -4,7 +4,7 @@ Automagic Industries brings you a new autopilot, which reduces driving accidents
 # Changelog
 ## 1.4.1
 ### Changes
-- Rebuild for KSP 1.12.2
+- Rebuild for KSP 1.12.3
 
 ### Fixes
 - Added support for NFE + System Heat
