@@ -1,5 +1,9 @@
 # Bon Voyage :: Archive
 
+* 2019-1104: 1.0.1.1 (Maja) for KSP 1.8.1
+	+ Changes
+		- Minimum height of a rover over the terrain was changed to avoid some clipping issues
+		- KSP 1.8.1 compatibility
 * 2019-1020: 1.0.0 (Maja) for KSP 1.8.0
 	+ Changes
 		- KSP 1.8 compatibility
