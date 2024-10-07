@@ -1,5 +1,14 @@
 # Bon Voyage :: Archive
 
+* 2017-0929: 0.13.1 (Maja) for KSP 1.3.0
+	+ Changes
+		- Displayed information revision
+		- Change in background processing (TAC-LS compatibility!)
+		- Pilots and USI Scouts affect rover speed depending on their level
+	+ Fixes
+			- Fixed drawing of the line to a target
+			- Fixed wrong path to images on Linux
+			- Various fixes
 * 2017-0913: 0.13.0 (Maja) for KSP 1.3.0
 	+ Changes
 		- KSP 1.3 compatibility
