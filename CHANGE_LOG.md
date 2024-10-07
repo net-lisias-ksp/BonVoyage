@@ -1,5 +1,9 @@
 # Bon Voyage :: Archive
 
+* 2019-0609: 0.14.6 (Maja) for KSP 1.7.1
+	+ Fixes
+		- Some nullrefs and indexes out of range were fixed
+		- Fixed max speed check for Making History expansion foldable wheels (typo in the name of wheels)
 * 2019-0603: 0.14.5 (Maja) for KSP 1.7.1
 	+ Fixes
 		- Fixed bulk profile category
