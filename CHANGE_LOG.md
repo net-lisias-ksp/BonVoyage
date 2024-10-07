@@ -1,5 +1,24 @@
 # Bon Voyage :: Archive
 
+* 2017-0317: 0.12.0 (RealGecko) for KSP 1.2.2
+	+ Fixes
+		- Change a few frequently called `foreach` loops to `for` by [soulsource](https://github.com/Real-Gecko/KSP-BonVoyage/pull/3)
+		- Make `Bon Voyage Autopilot` part physicsless by [Suprcheese](https://github.com/Real-Gecko/KSP-BonVoyage/pull/4)
+		- `Close` button calls `appLauncherButton.SetFalse`
+		- Check for retracted solar panels
+		- Average speed is now really average and not the maximum of any wheel's speed
+		- Target 200 meters away from navpoint
+		- Landing gears can be used as operable wheels by [Kerbas-ad-astra](https://github.com/Real-Gecko/KSP-BonVoyage/pull/6)
+		- ModuleWheelBase used to determine if wheel is on the ground by [Kerbas-ad-astra](https://github.com/Real-Gecko/KSP-BonVoyage/pull/6)
+		- Allow travelling "below" sea level if celestial body has no ocean
+	+ Changes
+			- KSPWheels support
+			- Separate UI for module control, no mess in right click menu
+			- Integrated UIFramework
+			- Path compressed with [lz-string-csharp](https://github.com/jawa-the-hutt/lz-string-csharp) to use less space in save file
+			- Show route only for active rover
+			- Interstellar reactors support
+		- [screenshot6](https://cloud.githubusercontent.com/assets/2231969/24061553/0af45ab2-0b82-11e7-81fb-807086ddb330.png)
 * 2016-1211: 0.11.1 (RealGecko) for KSP 1.2.2
 	+ Fixes for KSP 1.2.2
 	+ Added "Close" button to main window
