@@ -1,5 +1,10 @@
 # Bon Voyage :: Archive
 
+* 2020-0812: 1.2.0 (Maja) for KSP 1.10.1
+	+ Changes
+		- Rebuild for KSP 1.10.1
+		- Pathfinder optimization - it's quicker :)
+		- New configuration value for pathfinding timeout was added. Default value is 10 seconds. You can change it in config.xml of BonVoyage by changing the value on this line: `<double name="pathfinderTimer">10</double>`
 * 2020-0812: 1.1.1 (Maja) for KSP 1.9.1
 	+ Changes
 		- Pathfinder optimization - it's quicker :)
