@@ -1,5 +1,10 @@
 # Bon Voyage :: Archive
 
+* 2019-0829: 0.5.3 (Maja) for KSP 1.7.3
+	+ Changes
+		- Cheats for infinite electricity and propellant are accepted (your game, your rules)
+		- Part upgrades were reworked to support their placement into different tech trees by MM's config
+			- By default, two upgrades are in the stock tech tree (plus the base part). Third upgrade is placed into Artificial intelligence node of CTT if you have it.
 * 2019-0826: 0.5.2 (Maja) for KSP 1.7.3
 	+ Changes
 		- BonVoyage modul added to RoveMate by default
