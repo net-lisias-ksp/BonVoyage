@@ -1,5 +1,10 @@
 # Bon Voyage :: Archive
 
+* 2019-0814: 0.14.9 (Maja) for KSP 1.7.3
+	+ Fixes
+		- Fixed coordinates when a target is selected on the map
+	+ Changes
+			- KSP 1.7.3 compatible
 * 2019-0623: 0.14.8 (Maja) for KSP 1.7.2
 	+ Changes
 		- KSP 1.7.2 compatible
