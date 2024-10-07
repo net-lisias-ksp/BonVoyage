@@ -1,5 +1,8 @@
 # Bon Voyage :: Archive
 
+* 2016-1013: 0.10.2 (RealGecko) for KSP 1.2
+	+ Recompile for KSP 1.2
+	+ Fixed last waypoint being last step of voyage
 * 2016-1003: 0.10.1 (RealGecko) for KSP 1.1.3
 	+ Fixed control lock being applied to next switched vessel
 	+ Moved "Bon Voyage control lock active" message higher on screen
