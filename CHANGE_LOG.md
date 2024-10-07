@@ -1,5 +1,17 @@
 # Bon Voyage :: Archive
 
+* 2018-1104: 0.14.0_-_New_voyage (Maja) for KSP 1.5.1
+	+ Changes
+		- KSP 1.5.1 compatibility
+		- Major overhaul - We are getting ready to extend our operations to the water in the future.
+		- Localization support
+		- KSPWheel module system check change
+			- Required EC is scaled by a motor's output setting
+			- Maximum speed is taken from maxDrivenSpeed field, which is scaled by gear setting, and capped at max safe speed
+		- Direct input of target coordinates
+		- Stabilization of a rover during scene switching into flight, if it's moving or just arrived at a destination. The function is switched off, if World Stabilizer or BD Armory is present.
+		- Added MiniAVC
+		- Updated Wiki
 * 2018-1105: 0.14.0.1 (Maja) for KSP 1.5.1
 	+ Fixes
 		- Fixed rover skipping kilometers forward to the target under some circumstances
