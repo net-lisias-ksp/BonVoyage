@@ -1,5 +1,10 @@
 # Bon Voyage :: Archive
 
+* 2022-1002: 1.4.1 (Maja) for KSP 1.12.3
+	+ Changes
+		- Rebuild for KSP 1.12.3
+	+ Fixes
+			- Added support for NFE + System Heat
 * 2021-0708: 1.4.0 (Maja) for KSP 1.12.1
 	+ Changes
 		- Rebuild for KSP 1.12.1
