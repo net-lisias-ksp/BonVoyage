@@ -1,5 +1,11 @@
 # Bon Voyage :: Archive
 
+* 2019-1010: 0.5.4 (RealGecko) for KSP 1.7.3
+	+ Changes
+		- Path is computed immediately after selecting a target (point on map, current target or waypoint)
+	+ Fixes
+			- Fixed null ref when closing main window after hiding the application button
+			- Fixed distance display in the control panel after setting a route
 * 2019-0829: 0.5.3 (RealGecko) for KSP 1.7.3
 	+ Changes
 		- Cheats for infinite electricity and propellant are accepted (your game, your rules)
