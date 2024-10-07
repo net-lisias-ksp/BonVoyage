@@ -1,35 +1,18 @@
 {
-    "NAME"     : "Bon Voyage",
-    "URL"      : "https://raw.githubusercontent.com/jarosm/KSP-BonVoyage/master/GameData/BonVoyage/Versioning/BonVoyage.version",
-    "DOWNLOAD" : "https://spacedock.info/mod/950/BonVoyage",
-    "GITHUB" :
-    {
-        "USERNAME" : "jarosm",
-        "REPOSITORY" : "KSP-BonVoyage"
-    },
-    "VERSION" :
-    {
-        "MAJOR" : 1,
-        "MINOR" : 4,
-        "PATCH" : 1,
-        "BUILD" : 0
-    },
-    "KSP_VERSION" :
-    {
-        "MAJOR" : 1,
-        "MINOR" : 12,
-        "PATCH" : 3
-    },
-    "KSP_VERSION_MIN" :
-    {
-        "MAJOR" : 1,
-        "MINOR" : 12,
-        "PATCH" : 3
-    },
-    "KSP_VERSION_MAX" :
-    {
-        "MAJOR" : 1,
-        "MINOR" : 12,
-        "PATCH" : 3
-    }
+	"NAME"		: "BonVoyage /L",
+	"URL"		: "https://raw.githubusercontent.com/net-lisias-ksp/BonVoyage/master/BonVoyage.version",
+	"DOWNLOAD"	: "https://github.com/net-lisias-ksp/BonVoyage/releases",
+	"CHANGE_LOG"	: "https://raw.githubusercontent.com/net-lisias-ksp/BonVoyage/master/CHANGE_LOG.md",
+	"CHANGE_LOG_URL": "https://raw.githubusercontent.com/net-lisias-ksp/BonVoyage/master/CHANGES.md",
+	"VERSION":{
+		"MAJOR":1,
+		"MINOR":5,
+		"PATCH":0,
+		"BUILD":0
+		},
+	"KSP_VERSION_MIN":{
+		"MAJOR":1,
+		"MINOR":8,
+		"PATCH":0
+		}
 }
