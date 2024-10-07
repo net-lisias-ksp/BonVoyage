@@ -1,5 +1,12 @@
 # Bon Voyage :: Archive
 
+* 2018-1110: 0.14.1.1 (Maja) for KSP 1.5.1
+	+ Fixes
+		- Fixed detection of KSP Interstellar Extended generators
+	+ Changes
+			- Kopernicus support - solar panels are working even when you are around other stars
+			- Added support for Bison Cab from Wild Blue Industries
+			- Bon Voyage will try to rotate a rover perpendicularly to a terrain
 * 2018-1104: 0.14.0_-_New_voyage (Maja) for KSP 1.5.1
 	+ Changes
 		- KSP 1.5.1 compatibility
