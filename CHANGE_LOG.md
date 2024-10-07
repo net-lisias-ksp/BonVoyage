@@ -1,5 +1,8 @@
 # Bon Voyage :: Archive
 
+* 2024-1007: 1.5.0.0 (LisiasT) for KSP >= 1.8
+	+ Initial version under LisiasT's stewardship. 
+	+ KSP compatibility set (and guaranteed) down to 1.8.0
 * 2022-1002: 1.4.1 (Maja) for KSP 1.12.3
 	+ Changes
 		- Rebuild for KSP 1.12.3
