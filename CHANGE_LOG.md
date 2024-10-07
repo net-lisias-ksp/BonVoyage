@@ -1,5 +1,10 @@
 # Bon Voyage :: Archive
 
+* 2021-0708: 1.4.0 (Maja) for KSP 1.12.1
+	+ Changes
+		- Rebuild for KSP 1.12.1
+	+ Fixes
+		- Added patch for slim suit
 * 2021-0309: 1.3.1 (Maja) for KSP 1.11.1
 	+ Changes
 		- Chinese localization updated
