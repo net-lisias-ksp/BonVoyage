@@ -1,5 +1,11 @@
 # Bon Voyage :: Archive
 
+* 2019-0610: 0.14.7 (Maja) for KSP 1.7.2
+	+ Fixes
+		- Fixed null ref for the new game
+		- Fixed loading of controllers into the main window
+		- Fixed issue with control window moving out of screen
+		- Max speed of stock wheels (including Making History wheels) is reported properly
 * 2019-0609: 0.14.6 (Maja) for KSP 1.7.1
 	+ Fixes
 		- Some nullrefs and indexes out of range were fixed
