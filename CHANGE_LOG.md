@@ -1,5 +1,13 @@
 # Bon Voyage :: Archive
 
+* 2020-0810: 1.1.0 (Maja) for KSP 1.9.1
+	+ Changes
+		- Kerbalism compatibility
+		- Critter Crawler compatibility
+		- Added the option to show biome info in the map view on or off. Off by default.
+		- KSP 1.9.1 compatibility
+	+ Fixes
+			- Fixed wrong check of output EC ratio of fuel cells
 * 2019-1104: 1.0.1.1 (Maja) for KSP 1.8.1
 	+ Changes
 		- Minimum height of a rover over the terrain was changed to avoid some clipping issues
