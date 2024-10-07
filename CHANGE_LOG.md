@@ -1,5 +1,7 @@
 # Bon Voyage :: Archive
 
+* 2016-0916: 0.9.9.9 (RealGecko) for KSP 1.1.3
+	+ Initial public release
 * 2019-1010: 0.5.4 (RealGecko) for KSP 1.7.3
 	+ Changes
 		- Path is computed immediately after selecting a target (point on map, current target or waypoint)
