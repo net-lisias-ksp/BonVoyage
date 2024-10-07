@@ -1,5 +1,8 @@
 # Bon Voyage :: Archive
 
+* 2017-1014: 0.13.2.1 (Maja) for KSP 1.3.1
+	+ Fixes
+		- Fixed required power of wheels with KSPWheel module
 * 2017-1007: 0.13.2 (Maja) for KSP 1.3.1
 	+ Changes
 		- KSP 1.3.1 compatibility
