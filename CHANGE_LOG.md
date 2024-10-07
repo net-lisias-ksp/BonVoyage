@@ -1,5 +1,9 @@
 # Bon Voyage :: Archive
 
+* 2018-1204: 0.14.3_-_Power_of_LOx (Maja) for KSP 1.5.1
+	+ Changes
+		- Fuel cells support
+		- Added Reload button to the main window to refresh list of vessels without scene switch
 * 2018-1117: 0.14.2 (Maja) for KSP 1.5.1
 	+ Changes
 		- Unmanned rover must have an active connection to set a target or issue the GO command if you are using the CommNet or RemoteTech
