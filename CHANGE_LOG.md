@@ -1,5 +1,15 @@
 # Bon Voyage :: Archive
 
+* 2021-0309: 1.3.1 (Maja) for KSP 1.11.1
+	+ Changes
+		- Chinese localization updated
+		- Russian localization by kovakthemost
+		- Added BonVoyage to Mk2 Lander Can
+		- Added height offset for rovers to the Settings
+	+ Fixes
+		- Fixed usage of fuel cells with infinite propellant cheat enabled and no fuel tanks present
+		- Fixed wrong count of operable wheels with KSPWheel module when "Wear and damage" setting was set to NONE
+		- Fixed detection of usable converters when fuel cell contains more modules of type ModuleResourceConverter
 * 2021-0207: 1.3.0 (Maja) for KSP 1.11.1
 	+ Changes
 		- Rebuild for KSP 1.11.1
