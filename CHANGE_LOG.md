@@ -1,5 +1,7 @@
 # Bon Voyage :: Archive
 
+* 2019-0428: 0.14.4 (Maja) for KSP 1.7.0
+	+ Recompile for KSP 1.7
 * 2018-1204: 0.14.3_-_Power_of_LOx (Maja) for KSP 1.5.1
 	+ Changes
 		- Fuel cells support
