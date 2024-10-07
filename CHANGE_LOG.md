@@ -1,5 +1,9 @@
 # Bon Voyage :: Archive
 
+* 2016-1211: 0.11.1 (Maja) for KSP 1.2.2
+	+ Fixes for KSP 1.2.2
+	+ Added "Close" button to main window
+	+ Toolbar button won't appear in editors
 * 2016-1030: 0.11.0 (Maja) for KSP 1.2.1
 	+ New part, created by [Enceos](http://forum.kerbalspaceprogram.com/index.php?/profile/110725-enceos/)
 	+ Icon is now colorized, made by [Madebyoliver](http://www.flaticon.com/authors/madebyoliver) and licensed under [Creative Commons BY 3.0](http://creativecommons.org/licenses/by/3.0/)
