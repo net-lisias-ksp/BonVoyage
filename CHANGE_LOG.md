@@ -1,5 +1,13 @@
 # Bon Voyage :: Archive
 
+* 2021-0207: 1.3.0 (Maja) for KSP 1.11.1
+	+ Changes
+		- Rebuild for KSP 1.11.1
+		- Kerbals can move behind the scene too (with a blinding speed of 0.5m/s - depends on the celestial body)
+		- Usage of batteries is switched off during system check and user is notified about it when there isn't enough power to recharge a rover
+		- Chinese localization by Raven-233486
+		- French localization by vinix38
+		- Added module for stock EVA construction
 * 2020-0812: 1.2.0 (Maja) for KSP 1.10.1
 	+ Changes
 		- Rebuild for KSP 1.10.1
