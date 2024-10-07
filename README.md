@@ -33,7 +33,7 @@ What's the best way of delivering ore or supplies from distant location to your 
 
 But did you try to drive for 110 km for two hours, avoiding obstacles and keeping your speed in sane limits? It's not fun anymore.
 
-Don't worry! Automagic Industries brings you a new autopilot, which reduces driving accidents by 100%. Bon Voyage is here and it will drive your rovers in background!
+Don't worry! Automagic Industries brings you a new autopilot, which reduces driving accidents by 100%. **Bon Voyage** is here and it will drive your rovers in background!
 
 ### How it Works
 
@@ -50,6 +50,10 @@ Don't worry! Automagic Industries brings you a new autopilot, which reduces driv
 	* RTGs, Nuclear Reactors, Fission Reactors, Antimatter Reactors, whole bunch of reactors is supported, if it has "reactor" in it's name than it will definitely work
 11. If rover cannot move without solar power it will idle until Sun is 0 degrees above the horizon
 12. **ROVER MUST BE LANDED!!!**
+
+The vessel only moves when "on rails", i.e., beyound Physics Range. Once the vessel get "off rails", **Bon Voyage** stop working.
+
+If the vessel suddenly stops moving, check the distance from the current craft - chances are that she entered Physics Range. You will need to change to some distant vessel (or change to another Scene) to **Bon Voyage** be able to kick in again.
 
 ### How to:
 
@@ -69,11 +73,11 @@ Don't worry! Automagic Industries brings you a new autopilot, which reduces driv
 
 ### Some math
 
-Power requirements calculations are really simple. Let's say you've built a rover on Malemute chassis with six Malemute Modular Wheels, each of 'em has max power consumption equal to 3.5. This means overall max consumption is 3.5 * 6 = 21. BV "requires" that your max power production is equal to 35% of max wheels' consumption 21/100*35 = 7.35 EC/s. So if your solar panels and/or RTGs provide 7.35 electric charge per second, then you're good to go. Your rover average speed will be 70% of wheels' max speed. In case of Malemute Modular Wheels it will be 35/100*70 = 24.5 m/s.
+Power requirements calculations are really simple. Let's say you've built a rover on Malemute chassis with six Malemute Modular Wheels, each of 'em has max power consumption equal to 3.5. This means overall max consumption is `3.5 * 6 = 21`. BV "requires" that your max power production is equal to 35% of max wheels' consumption `21/100*35 = 7.35 EC/s`. So if your solar panels and/or RTGs provide 7.35 electric charge per second, then you're good to go. Your rover average speed will be 70% of wheels' max speed. In case of Malemute Modular Wheels it will be `35/100*70 = 24.5 m/s`.
 
-Of course 7.35 charge per second is not really easy to achieve in case of rovers. What other options do you have? The answer is pretty easy: shutdown motor on two of your wheels. This will reduce power requirement to 3.5*4/100*35 = 4.9 EC/s. But beware that your rover average speed will fall to 60% - 35/100*60 = 21 m/s.
+Of course 7.35 charge per second is not really easy to achieve in case of rovers. What other options do you have? The answer is pretty easy: shutdown motor on two of your wheels. This will reduce power requirement to `3.5*4/100*35 = 4.9 EC/s`. But beware that your rover average speed will fall to `60% - 35/100*60 = 21 m/s`.
 
-If you disable two more wheels, then you power requirement will be just 3.5*2/100*35 = 2.45 EC/s, but average speed will fall to 50% - 35/100*50 = 17.5 m/s.
+If you disable two more wheels, then you power requirement will be just `3.5*2/100*35 = 2.45 EC/s`, but average speed will fall to `50% - 35/100*50 = 17.5 m/s`.
 
 ### Motes
 
@@ -107,7 +111,7 @@ Detailed installation instructions are now on its own file (see the [In a Hurry]
 
 ## Licensing
 
-* Bon Voyage's Source code is licensed under the [GPL 3.0](https://www.gnu.org/licenses/gpl-3.0.txt).
+* **Bon Voyage**'s Source code is licensed under the [GPL 3.0](https://www.gnu.org/licenses/gpl-3.0.txt).
 	+ You are free to:
 		- Use : unpack and use the material in any computer or device
 		- Redistribute : redistribute the original package in any medium
