@@ -1,5 +1,18 @@
 # Bon Voyage :: Archive
 
+* 2017-0913: 0.13.0 (Maja) for KSP 1.3.0
+	+ Changes
+		- KSP 1.3 compatibility
+		- WBI reactors and MKS power pack compatibility
+		- Support for tricycles
+		- Hide BV window in map view
+		- Average speed change - reduction based on power
+		- Shutdown/Activate BV Controller
+	+ Fixes
+			- Fixed target longitude display
+			- App launcher button fix
+			- Adjusted vessel altitude from terrain
+			- Night time ride fix
 * 2017-0317: 0.12.0 (Maja) for KSP 1.2.2
 	+ Fixes
 		- Change a few frequently called `foreach` loops to `for` by [soulsource](https://github.com/Real-Gecko/KSP-BonVoyage/pull/3)
