@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BonVoyage", "BonVoyage\BonVoyage.csproj", "{05CFDB95-994A-4C5D-9840-C6D1A86918C2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BonVoyage", "Source\BonVoyage\BonVoyage.csproj", "{05CFDB95-994A-4C5D-9840-C6D1A86918C2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
