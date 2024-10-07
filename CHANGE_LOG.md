@@ -1,5 +1,7 @@
 # Bon Voyage :: Archive
 
+* 2018-0316: 0.13.3 (Maja) for KSP 1.4.1
+	+ Recompile for KSP 1.4.1
 * 2017-1014: 0.13.2.1 (Maja) for KSP 1.3.1
 	+ Fixes
 		- Fixed required power of wheels with KSPWheel module
