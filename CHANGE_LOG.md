@@ -1,5 +1,12 @@
 # Bon Voyage :: Archive
 
+* 2017-1007: 0.13.2 (Maja) for KSP 1.3.1
+	+ Changes
+		- KSP 1.3.1 compatibility
+		- Tooltip change
+		- Pilots, USI Scouts and anyone with AutopilotSkill affect speed
+	+ Fixes
+			- Various fixes
 * 2017-0929: 0.13.1 (Maja) for KSP 1.3.0
 	+ Changes
 		- Displayed information revision
