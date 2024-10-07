@@ -1,5 +1,11 @@
 # Bon Voyage :: Archive
 
+* 2018-1105: 0.14.0.1 (Maja) for KSP 1.5.1
+	+ Fixes
+		- Fixed rover skipping kilometers forward to the target under some circumstances
+		- Removed forgotten harmless debug warning message
+	+ Changes
+			- Added tooltip to the *System check* button to better explain it's function
 * 2018-0316: 0.13.3 (Maja) for KSP 1.4.1
 	+ Recompile for KSP 1.4.1
 * 2017-1014: 0.13.2.1 (Maja) for KSP 1.3.1
