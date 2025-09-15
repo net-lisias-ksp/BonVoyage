@@ -236,6 +236,7 @@ namespace BonVoyage
                 {
                     ScreenMessages.PostScreenMessage(Localizer.Format("#LOC_BV_RouteFound", 5f));
                     RefreshStatsListLayout();
+                    BonVoyage.Instance.UpdateWayPoints();
                 }
                 else
                     ScreenMessages.PostScreenMessage(Localizer.Format("#LOC_BV_RouteNotFound", 5f));

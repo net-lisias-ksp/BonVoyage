@@ -41,7 +41,12 @@ namespace BonVoyage
                 longitude = lon;
 				this.altitude = alt;
             }
-        }
+
+			internal Vector3 toVector3(CelestialBody mainBody)
+			{   // LLA to ECEF
+				return mainBody.GetWorldSurfacePosition(this.latitude, this.longitude, this.altitude);
+			}
+		}
 
 
 		/// <summary>

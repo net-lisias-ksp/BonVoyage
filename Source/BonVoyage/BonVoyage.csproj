@@ -116,6 +116,7 @@
     <Compile Include="PowerSources\SnacksPoweredConverter.cs" />
     <Compile Include="PowerSources\ElectricityPoweredConverter.cs" />
     <Compile Include="PowerSources\PropellantPoweredConverter.cs" />
+    <Compile Include="GUI\WaypointPlotter.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\Version.tt">

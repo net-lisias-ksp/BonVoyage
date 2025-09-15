@@ -85,6 +85,8 @@ namespace BonVoyage
         private DateTime lastUpdate; // Last time of controllers update cycle
 
         private bool otherStabilizerPresent; // Set to true if other stabilizing mod is present
+		private BonVoyageModule currentModule;
+		private WaypointPlotter waypointsPlotter;
 
         #endregion
 
@@ -134,6 +136,8 @@ namespace BonVoyage
         public void Start()
         {
             DontDestroyOnLoad(this);
+			this.waypointsPlotter = new UI.WaypointPlotter(this.gameObject);
+
             GameEvents.onGUIApplicationLauncherReady.Add(AddLauncher);
             GameEvents.onGUIApplicationLauncherDestroyed.Add(RemoveLauncher);
             GameEvents.onGameSceneSwitchRequested.Add(OnGameSceneSwitchRequested);
@@ -188,8 +192,13 @@ namespace BonVoyage
         {
             if (GamePaused && !ShowUI)
                 return;
-            
-            if (CommonWindowProperties.UnitySkin == null)
+
+			if (null != this.waypointsPlotter)
+			{
+				this.waypointsPlotter.Draw(MapView.MapIsEnabled && HighLogic.LoadedSceneIsFlight);
+			}
+
+			if (CommonWindowProperties.UnitySkin == null)
             {
                 CommonWindowProperties.UnitySkin = StyleConverter.Convert(GUI.skin);
 
@@ -267,9 +276,10 @@ namespace BonVoyage
             if (controlViewVisible)
                 ToggleControlWindow();
 
-            BonVoyageModule currentModule = vessel.FindPartModuleImplementing<BonVoyageModule>();
-            if (currentModule != null)
+            this.currentModule = vessel.FindPartModuleImplementing<BonVoyageModule>();
+            if (null != currentModule)
             {
+                this.UpdateWayPoints();
                 if (currentModule.active)
                 {
                     InputLockManager.SetControlLock(lockMask, "BonVoyageInputLock");
@@ -848,6 +858,15 @@ namespace BonVoyage
             else
                 InputLockManager.RemoveControlLock("BonVoyageInputLock");
         }
+
+		#region Draw Waypoints
+
+		internal void UpdateWayPoints()
+		{
+			this.waypointsPlotter.Update(this.currentModule.vessel);
+		}
+
+		#endregion
 
 
         /// <summary>
