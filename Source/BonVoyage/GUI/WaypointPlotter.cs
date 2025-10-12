@@ -76,6 +76,14 @@ namespace BonVoyage.UI
 				this.lineRenderer.transform.localEulerAngles = Vector3.zero;
 				draw(this.points, this.lineRenderer);
 
+				Vector3 targetLocalOffset = new Vector3(0, 0, 0);
+				this.lineRenderer.transform.position = target.transform.TransformPoint(targetLocalOffset);
+				this.lineRenderer.transform.rotation = target.transform.rotation * Quaternion.identity;
+				this.lineRenderer.transform.localScale = new Vector3(
+															target.transform.localScale.x / this.celestialBody.transform.localScale.x,
+															target.transform.localScale.y / this.celestialBody.transform.localScale.y,
+															target.transform.localScale.z / this.celestialBody.transform.localScale.z
+														);
 				this.lineRenderer.enabled = true;
 			} else if (!visible && this.lineRenderer.enabled)
 				this.lineRenderer.enabled = false;
