@@ -1,5 +1,11 @@
 # Bon Voyage :: Archive
 
+* 2026-0118: 1.5.1.2 (LisiasT) for KSP >= 1.8
+	+ Works around an **very** unfortunate intervention at my default by `BackgroudResourceProcessing`. Thanks to [Agartha-KSP](https://github.com/Agartha-KSP) for the report!
+	+ Merges a fix on related to . Thanks to [LouisB3](https://github.com/LouisB3) for the fix!
+	+ Closes Issues/PRs:
+		+ [#34](https://github.com/net-lisias-ksp/BonVoyage/pull/34) Set PartUpgrades costs to zero to address VAB display issue.
+		+ [#33](https://github.com/net-lisias-ksp/BonVoyage/issues/33) Exception & Bon Voyage & BackgroundResourceProcessing.
 * 2025-1220: 1.5.1.1 (LisiasT) for KSP >= 1.8
 	+ Promotes 1.5.1.0 codebase to production
 		- Allows configuring the wheels's drive settings to do long journeys using less energy;
