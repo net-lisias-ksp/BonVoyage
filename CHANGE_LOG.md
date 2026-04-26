@@ -1,5 +1,9 @@
-# Bon Voyage :: Archive
+# Bon Voyage :: CHANGE LOG
 
+* 2026-0426: 1.5.1.3 (LisiasT) for KSP >= 1.8
+	+ Closes Issues
+		+ [#38](https://github.com/net-lisias-ksp/BonVoyage/issues/38) BonVoyage gets in the way if the Kerbal dies while under its control.
+		+ [#35](https://github.com/net-lisias-ksp/BonVoyage/issues/35) Rover overpowered . Regression from 1.5.0.0.
 * 2026-0118: 1.5.1.2 (LisiasT) for KSP >= 1.8
 	+ Works around an **very** unfortunate intervention at my default by `BackgroudResourceProcessing`. Thanks to [Agartha-KSP](https://github.com/Agartha-KSP) for the report!
 	+ Merges a fix on related to . Thanks to [LouisB3](https://github.com/LouisB3) for the fix!
