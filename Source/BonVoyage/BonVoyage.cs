@@ -85,6 +85,7 @@ namespace BonVoyage
         private DateTime lastUpdate; // Last time of controllers update cycle
 
         private bool otherStabilizerPresent; // Set to true if other stabilizing mod is present
+		private bool ShouldStabilize => !(this.otherStabilizerPresent || Configuration.ForceStabilizerDeactivation);
 
         #endregion
 
@@ -326,7 +327,7 @@ namespace BonVoyage
                         if (controller.Active || controller.Arrived)
                         {
                             // Stabilize only if another stabilizer is not present
-                            if (!otherStabilizerPresent)
+							if (this.ShouldStabilize)
                                 StabilizeVessel.AddVesselToStabilize(vessel, controller.RotationVector, Configuration.DisableRotation);
                             else // only rotate
                             {
@@ -707,7 +708,7 @@ namespace BonVoyage
         /// </summary>
         public void FixedUpdate()
         {
-            if (!otherStabilizerPresent)
+			if (this.ShouldStabilize)
                 StabilizeVessel.Stabilize();
         }
 

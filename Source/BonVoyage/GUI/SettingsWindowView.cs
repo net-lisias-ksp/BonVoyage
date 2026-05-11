@@ -89,6 +89,8 @@ namespace BonVoyage
                     heightOffsetField,
                     new DialogGUILabel(Localizer.Format("m")))
             ));
+
+			AddChild(TooltipExtension.DeferTooltip(new DialogGUIToggle(model.GetForceStabilizerDeactivationState(), Localizer.Format("#LOC_BV_ForceStabilizerDeactivation"), model.ForceStabilizerDeactivationChecked, 130f) { tooltipText = Localizer.Format("#LOC_BV_ForceStabilizerDeactivation_Tooltip") }));
         }
 
 

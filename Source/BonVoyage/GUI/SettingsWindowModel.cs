@@ -47,6 +47,7 @@ namespace BonVoyage
                 Configuration.HeightOffset = heightOffset;
             }
         }
+        private bool forceStabilizerDeactivation = false;
 
 
         /// <summary>
@@ -65,6 +66,7 @@ namespace BonVoyage
             kspToolbarChecked = Configuration.KSPToolbar;
             toolbarContinuedChecked = Configuration.ToolbarContinued;
             heightOffset = Configuration.HeightOffset;
+			this.forceStabilizerDeactivation = Configuration.ForceStabilizerDeactivation;
         }
 
 
@@ -297,6 +299,21 @@ namespace BonVoyage
             return HeightOffset;
         }
 
-    }
+		/// <summary>
+		/// Force Stabilizer Deactivation checkbox
+		/// </summary>
+		/// <param name="value"></param>
+		internal void ForceStabilizerDeactivationChecked(bool value)
+		{
+			this.forceStabilizerDeactivation = value;
+			Configuration.ForceStabilizerDeactivation = value;
+		}
+
+		/// <summary>
+		/// Get the state of Force Stabilizer Deactivation toggle
+		/// </summary>
+		/// <returns></returns>
+		internal bool GetForceStabilizerDeactivationState() => this.forceStabilizerDeactivation;
+	}
 
 }

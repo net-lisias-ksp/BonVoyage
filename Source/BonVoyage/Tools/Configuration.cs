@@ -224,6 +224,19 @@ namespace BonVoyage
             }
         }
 
+		/// <summary>
+		/// Height offset
+		/// </summary>
+		internal static bool ForceStabilizerDeactivation
+		{
+			get { return configuration.GetValue<bool>("forceStabilizerDeactivation", false); }
+			set
+			{
+				configuration.SetValue("forceStabilizerDeactivation", value);
+				configuration.save();
+			}
+		}
+
         #endregion
 
 
