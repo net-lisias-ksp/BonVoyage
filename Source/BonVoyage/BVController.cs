@@ -584,26 +584,27 @@ namespace BonVoyage
         /// <returns></returns>
         internal bool CheckConnection()
         {
-            if ((vessel.GetCrewCount() == 0) && !vessel.isEVA) // Unmanned -> check connection
-            {
-                // CommNet
-                if (vessel.Connection.ControlState != CommNet.VesselControlState.ProbeFull)
-                {
-                    ScreenMessages.PostScreenMessage(Localizer.Format("#LOC_BV_Warning_NoConnection", 5f)).color = CommonWindowProperties.Message_Colour_Warning;
-                    return false;
-                }
+			if ((this.vessel.GetCrewCount() > 1) || this.vessel.isEVA) return true;
 
-                // RemoteTech
-                if (Tools.AssemblyIsLoaded("RemoteTech"))
-                {
-                    if (RemoteTechWrapper.IsRemoteTechEnabled() && !RemoteTechWrapper.HasAnyConnection(vessel.id) && !RemoteTechWrapper.HasLocalControl(vessel.id))
-                    {
-                        ScreenMessages.PostScreenMessage(Localizer.Format("#LOC_BV_Warning_NoConnection", 5f)).color = CommonWindowProperties.Message_Colour_Warning;
-                        return false;
-                    }
-                }
-            }
-            return true;
+			// CommNet
+			if (this.vessel.Connection.ControlState != CommNet.VesselControlState.ProbeFull)
+			{
+				ScreenMessages.PostScreenMessage(Localizer.Format("#LOC_BV_Warning_NoConnection", 5f)).color = CommonWindowProperties.Message_Colour_Warning;
+				return false;
+			}
+
+			// RemoteTech
+			if (Tools.AssemblyIsLoaded("RemoteTech"))
+			{
+				if (RemoteTechWrapper.IsRemoteTechEnabled() && !RemoteTechWrapper.HasAnyConnection(this.vessel.id) && !RemoteTechWrapper.HasLocalControl(this.vessel.id))
+				{
+					ScreenMessages.PostScreenMessage(Localizer.Format("#LOC_BV_Warning_NoConnection", 5f)).color = CommonWindowProperties.Message_Colour_Warning;
+					return false;
+				}
+			}
+
+    		ScreenMessages.PostScreenMessage(Localizer.Format("#LOC_BV_Warning_UnknownSituation", 5f)).color = CommonWindowProperties.Message_Colour_Warning;
+			return false; // Unknown situation. Do not activate.
         }
 
 
