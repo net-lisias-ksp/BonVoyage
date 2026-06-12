@@ -152,6 +152,8 @@ namespace BonVoyage
                 );
             }
 
+			this.model.SystemCheckButtonClicked();
+
             return dialog;
         }
 
