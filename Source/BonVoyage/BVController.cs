@@ -603,8 +603,7 @@ namespace BonVoyage
 				}
 			}
 
-    		ScreenMessages.PostScreenMessage(Localizer.Format("#LOC_BV_Warning_UnknownSituation", 5f)).color = CommonWindowProperties.Message_Colour_Warning;
-			return false; // Unknown situation. Do not activate.
+			return true; // If nothing wrong is detected, then we should be good to go.
         }
 
 
