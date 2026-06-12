@@ -163,6 +163,13 @@ namespace BonVoyage
         {
             if (dialog != null)
             {
+				// That's the deal:
+				// By some reason, we need to initialize the geometry **HERE** otherwise the Window will not show.
+				// Apparently, by moving this to the `Show()` above it doesn't loads the values from the XML. Worst,
+				// It appears to work **once**, but on sucessuve runs it does not. Or at least it's how it worked for me.
+				//
+				// Perhaps we have a race condition here?
+				// FIXME.
                 Rect g = currentGeometry;
                 geometry = new Rect(g.x, g.y, CommonWindowProperties.controlWindowWidth, CommonWindowProperties.controlWindowHeight);
 
