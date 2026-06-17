@@ -80,11 +80,26 @@ namespace BonVoyage
 
             AddChild(new DialogGUISpace(5f));
 
-            AddChild(new DialogGUIHorizontalLayout(
-                new DialogGUIFlexibleSpace(),
-                new DialogGUIButton(model.GetGoButtonText, model.GoButtonClicked, null, 120f, CommonWindowProperties.buttonHeight + 4, false, CommonWindowProperties.Style_Button_Bold_Yellow),
-                new DialogGUIFlexibleSpace()
-            ));
+			if (this.model.ShowResumeButton)
+				AddChild(new DialogGUIHorizontalLayout(
+					new DialogGUIFlexibleSpace(),
+					new DialogGUIButton(this.model.GetResumeButtonText, this.model.ResumeButtonClicked, null, 120f, CommonWindowProperties.buttonHeight + 4, false, CommonWindowProperties.Style_Button_Bold_Yellow),
+					new DialogGUIFlexibleSpace()
+				));
+
+			if (this.model.ShowGoButton)
+				AddChild(new DialogGUIHorizontalLayout(
+					new DialogGUIFlexibleSpace(),
+					new DialogGUIButton(model.GetGoButtonText, model.GoButtonClicked, null, 120f, CommonWindowProperties.buttonHeight + 4, false, CommonWindowProperties.Style_Button_Bold_Yellow),
+					new DialogGUIFlexibleSpace()
+				));
+
+			if (this.model.ShowStopButton)
+				AddChild(new DialogGUIHorizontalLayout(
+					new DialogGUIFlexibleSpace(),
+					new DialogGUIButton(this.model.GetStopButtonText, this.model.StopButtonClicked, null, 120f, CommonWindowProperties.buttonHeight + 4, false, CommonWindowProperties.Style_Button_Bold_Yellow),
+					new DialogGUIFlexibleSpace()
+				));
         }
 
 

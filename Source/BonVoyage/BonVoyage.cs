@@ -860,6 +860,19 @@ namespace BonVoyage
         }
 
 
+		/// <summary>
+		/// Actions, when autopilot was resumed
+		/// </summary>
+		/// <param name="value"></param>
+		internal void AutopilotResume()
+		{
+			InputLockManager.SetControlLock(lockMask, "BonVoyageInputLock");
+			if (this.controlViewVisible)
+				this.ToggleControlWindow();
+			ScreenMessages.PostScreenMessage(Localizer.Format("#LOC_BV_AutopilotActive"), 14f).color = CommonWindowProperties.Message_Colour_Confirm_Restrictions;
+		}
+
+
         /// <summary>
         /// Add BonVoyage scenario to scenes (flight, space center, tracking station)
         /// </summary>

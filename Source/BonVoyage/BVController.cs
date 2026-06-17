@@ -523,6 +523,18 @@ namespace BonVoyage
         }
 
 
+		/// <summary>
+		/// Resumes autopilot.
+		/// </summary>
+		internal virtual bool Resume()
+		{
+			BonVoyageModule module = vessel.FindPartModuleImplementing<BonVoyageModule>();
+			if (null != module) // Just keep going!
+				BonVoyage.Instance.AutopilotResume();
+
+			return this.active;
+		}
+
         /// <summary>
         /// Update vessel
         /// </summary>

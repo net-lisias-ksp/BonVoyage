@@ -132,46 +132,104 @@ namespace BonVoyage
             };
         }
 
+		internal bool ShowGoButton => (null != this.currentController) && !this.controllerActive;
 
         /// <summary>
         /// Return text of the control button
         /// </summary>
         /// <returns></returns>
-        internal string GetGoButtonText()
-        {
-            if (!controllerActive)
-                return Localizer.Format("#LOC_BV_Control_Go");
-            else
-                return Localizer.Format("#LOC_BV_Control_Deactivate");
-        }
-
+		internal string GetGoButtonText() => Localizer.Format("#LOC_BV_Control_Go");
 
         /// <summary>
         /// Go button was clicked
         /// </summary>
         internal void GoButtonClicked()
         {
-            if (currentController != null)
-            {
-                if (!currentController.CheckConnection())
-                    return;
+			if (null == this.currentController)
+			{
+				ScreenMessages.PostScreenMessage(Localizer.Format("#LOC_BV_Warning_ControllerNotValid", 5f)).color = CommonWindowProperties.Message_Colour_Warning;
+				return;
+			}
 
-                if (!controllerActive)
-                {
-                    controllerActive = currentController.Activate();
-                    if (!controllerActive) // Refresh after uncomplete activation - show results of a system check
-                        RefreshStatsListLayout();
-                }
-                else
-                {
-                    controllerActive = currentController.Deactivate();
-                    BonVoyage.Instance.ResetWindows();
-                }
-            }
-            else
-                ScreenMessages.PostScreenMessage(Localizer.Format("#LOC_BV_Warning_ControllerNotValid", 5f)).color = CommonWindowProperties.Message_Colour_Warning;
+			this.RefreshStatsListLayout();
+
+			if (!this.currentController.CheckConnection())
+			{
+				ScreenMessages.PostScreenMessage(Localizer.Format("#LOC_BV_Warning_NoConnection", 5f)).color = CommonWindowProperties.Message_Colour_Warning;
+				return;
+			}
+
+			if (this.controllerActive) return;
+
+			// BV is iddle. Activate it.
+			this.controllerActive = this.currentController.Activate();
+			BonVoyage.Instance.ResetWindows();
         }
 
+		internal bool ShowResumeButton => (null != this.currentController) && this.controllerActive;
+
+        /// <summary>
+        /// Return text of the control button
+        /// </summary>
+        /// <returns></returns>
+		internal string GetResumeButtonText() => Localizer.Format("#LOC_BV_Control_Resume");
+
+		/// <summary>
+		/// Resume button was clicked
+		/// </summary>
+		internal void ResumeButtonClicked()
+		{
+			if (null == this.currentController)
+			{
+				ScreenMessages.PostScreenMessage(Localizer.Format("#LOC_BV_Warning_ControllerNotValid", 5f)).color = CommonWindowProperties.Message_Colour_Warning;
+				return;
+			}
+
+			this.RefreshStatsListLayout();
+
+			if (!this.currentController.CheckConnection())
+			{
+				ScreenMessages.PostScreenMessage(Localizer.Format("#LOC_BV_Warning_NoConnection", 5f)).color = CommonWindowProperties.Message_Colour_Warning;
+				return;
+			}
+
+			this.currentController.Resume();
+			BonVoyage.Instance.ResetWindows();
+		}
+
+		internal bool ShowStopButton => (null != this.currentController) && this.controllerActive;
+
+		/// <summary>
+		/// Return text of the control button
+		/// </summary>
+		/// <returns></returns>
+		internal string GetStopButtonText() => Localizer.Format("#LOC_BV_Control_Deactivate");
+
+		/// <summary>
+		/// Resume button was clicked
+		/// </summary>
+		internal void StopButtonClicked()
+		{
+			if (null == this.currentController)
+			{
+				ScreenMessages.PostScreenMessage(Localizer.Format("#LOC_BV_Warning_ControllerNotValid", 5f)).color = CommonWindowProperties.Message_Colour_Warning;
+				return;
+			}
+
+			this.RefreshStatsListLayout();
+
+			if (!this.controllerActive) return;
+
+			if (!this.currentController.CheckConnection())
+			{
+				ScreenMessages.PostScreenMessage(Localizer.Format("#LOC_BV_Warning_NoConnection", 5f)).color = CommonWindowProperties.Message_Colour_Warning;
+				return;
+			}
+
+			// BV is active. Shut it down.
+			this.controllerActive = this.currentController.Deactivate();
+			BonVoyage.Instance.ResetWindows();
+		}
 
         /// <summary>
         /// System check button was clicked
