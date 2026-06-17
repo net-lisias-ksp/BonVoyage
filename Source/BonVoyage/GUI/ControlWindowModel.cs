@@ -166,7 +166,27 @@ namespace BonVoyage
 			BonVoyage.Instance.ResetWindows();
         }
 
-		internal bool ShowResumeButton => (null != this.currentController) && this.controllerActive;
+#if DEBUG
+		private bool __ShowResumeButton
+#else
+		internal bool ShowResumeButton
+#endif
+			=> (null != this.currentController) && (this.controllerActive || this.currentController.State > VesselState.Moving);
+
+#if DEBUG
+		internal bool ShowResumeButton
+		{
+			get
+			{
+				Log.dbg("this.currentController = {0} ; this.controllerActive = {1} ; this.currentController.State = {2})"
+					, this.currentController
+					, this.controllerActive
+					, (null == this.currentController ? "n/a" : this.currentController.State.ToString())
+				);
+				return __ShowResumeButton;
+			}
+		}
+#endif
 
         /// <summary>
         /// Return text of the control button

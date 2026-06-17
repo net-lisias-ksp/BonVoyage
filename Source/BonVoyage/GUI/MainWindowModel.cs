@@ -215,14 +215,14 @@ namespace BonVoyage
                     case VesselState.ControllerDisabled:
                         statusStyle = CommonWindowProperties.Style_Label_Normal_Center_Red;
                         break;
-                    case VesselState.AwaitingSunlight:
-                        statusStyle = CommonWindowProperties.Style_Label_Normal_Center_Yellow;
-                        break;
                     case VesselState.Moving:
                         statusStyle = CommonWindowProperties.Style_Label_Normal_Center_Green;
                         break;
+					//case VesselState.AwaitingSunlight:
+					//	statusStyle = CommonWindowProperties.Style_Label_Normal_Center_Yellow;
+					//	break;
                     default:
-                        statusStyle = CommonWindowProperties.Style_Label_Normal_Center_Grey;
+						statusStyle = CommonWindowProperties.Style_Label_Normal_Center_Yellow;
                         break;
                 }
 

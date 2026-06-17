@@ -618,7 +618,10 @@ namespace BonVoyage
 				else
 	                NotifyNotEnoughFuel();
 
-                State = (distanceTravelled < distanceToTarget) ? VesselState.AwaitingSunlight : VesselState.Idle;
+				this.State = (distanceTravelled < distanceToTarget)
+						? (this.GetUseBatteriesOnly() ? VesselState.AwaitingHelp : VesselState.AwaitingSunlight)
+						: VesselState.Idle
+					;
             }
         }
 

@@ -35,7 +35,8 @@ namespace BonVoyage
         ControllerDisabled = 1,
         Current = 2,
         Moving = 3,
-        AwaitingSunlight = 4
+        AwaitingSunlight = 4,
+        AwaitingHelp = 5
     }
 
 
@@ -191,6 +192,7 @@ namespace BonVoyage
             {
                 if (_state != value)
                 {
+					Log.dbg("Setting {0} State from {1} to {2}", this.vessel.vesselName, _state, value);
                     _state = value;
                     if (OnStateChanged != null)
                         OnStateChanged(this, EventArgs.Empty);
@@ -338,6 +340,8 @@ namespace BonVoyage
                     return Localizer.Format("#LOC_BV_Status_Disabled");
                 case VesselState.AwaitingSunlight:
                     return Localizer.Format("#LOC_BV_Status_AwaitingSunlight");
+                case VesselState.AwaitingHelp:
+                    return Localizer.Format("#LOC_BV_Status_AwaitingHelp");
                 case VesselState.Moving:
                     return Localizer.Format("#LOC_BV_Status_Moving");
                 default:
@@ -529,8 +533,18 @@ namespace BonVoyage
 		internal virtual bool Resume()
 		{
 			BonVoyageModule module = vessel.FindPartModuleImplementing<BonVoyageModule>();
-			if (null != module) // Just keep going!
-				BonVoyage.Instance.AutopilotResume();
+			if (null == module) return this.active;
+
+			// Just keep going!
+			active = true;
+			module.active = active;
+			targetLatitude = module.targetLatitude;
+			targetLongitude = module.targetLongitude;
+			distanceToTarget = module.distanceToTarget;
+			distanceTravelled = module.distanceTravelled;
+			path = PathUtils.DecodePath(module.pathEncoded);
+			requiredPower = module.requiredPower;
+			BonVoyage.Instance.AutopilotResume();
 
 			return this.active;
 		}
