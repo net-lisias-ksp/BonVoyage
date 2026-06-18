@@ -218,6 +218,7 @@ namespace BonVoyage
 					SelectedCallback = UseFuelCellsChanged
                 }
             };
+
 			this.displayedSystemCheckWidgets.Add(result);
 
 			return this.displayedSystemCheckWidgets;
@@ -484,6 +485,7 @@ namespace BonVoyage
 				else if ((angle > 80) && manned) // twilight
 					speedMultiplier = 0.75;
 			}
+
             double deltaT = currentTime - lastTimeUpdated; // Time delta from the last update
             double deltaTOver = 0; // deltaT which is calculated from a value over the maximum resource amout available
 
@@ -598,8 +600,8 @@ namespace BonVoyage
             // Stop the rover, we don't have enough juice
 			if (deltaTOver > 0 || (!CheatOptions.InfiniteElectricity && this.batteries.PowerIsExhausted))
             {
-                active = false;
-				this.arrived = false;
+				active = this.arrived = false;
+
                 BVModule.SetValue("active", "False");
 				this.BVModule.SetValue("arrived", "False");
 
