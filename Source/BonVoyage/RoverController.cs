@@ -598,7 +598,7 @@ namespace BonVoyage
             }
 
             // Stop the rover, we don't have enough juice
-			if (deltaTOver > 0 || (!CheatOptions.InfiniteElectricity && this.batteries.PowerIsExhausted))
+			if (deltaTOver > 0 || this.batteries.PowerIsExhausted)
             {
 				active = this.arrived = false;
 
@@ -615,7 +615,7 @@ namespace BonVoyage
                     ScreenMessages.PostScreenMessage(vessel.vesselName + " " + Localizer.Format("#LOC_BV_Warning_Stopped") + ".", 5f).color = CommonWindowProperties.Message_Colour_Warning;
                 }
 
-				if (!CheatOptions.InfiniteElectricity && this.batteries.PowerIsExhausted)
+				if (this.batteries.PowerIsExhausted)
                     NotifyBatteryEmpty();
 				else
 	                NotifyNotEnoughFuel();

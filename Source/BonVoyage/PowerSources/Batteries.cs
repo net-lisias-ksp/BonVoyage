@@ -35,8 +35,8 @@ namespace BonVoyage.PowerSources
         internal double ECPerSecondGenerated; // EC per second generated (generated power minus required power)
         internal double CurrentEC; // Current EC status of batteries
 
-		internal override bool PowerIsAvailable => this.Use && (this.CurrentEC > 0.1);
-		internal override bool PowerIsExhausted => this.Use && this.CurrentEC <= 0.1;
+		internal override bool PowerIsAvailable => this.Use && (CheatOptions.InfiniteElectricity || this.CurrentEC > 0.1);
+		internal override bool PowerIsExhausted => this.Use && (!CheatOptions.InfiniteElectricity && this.CurrentEC <= 0.1);
 
 		internal override void Read(ConfigNode controllerNode)
 		{
