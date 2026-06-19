@@ -19,6 +19,8 @@ using System;
 using UnityEngine;
 using System.Collections.Generic;
 
+using KSP.Localization;
+
 namespace BonVoyage
 {
     internal static class Tools
@@ -236,6 +238,25 @@ namespace BonVoyage
 
             return false;
         }
+
+
+		internal static void OptionalDewarpAndDo(Action action)
+		{
+			if (!Configuration.AutomaticDewarp) return;
+
+			if (TimeWarp.CurrentRate > 3) // Instant drop to 50x warp
+				TimeWarp.SetRate(3, true);
+			if (TimeWarp.CurrentRate > 0) // Gradual drop out of warp
+				TimeWarp.SetRate(0, false);
+
+			action?.Invoke();
+		}
+
+		internal static string BuildVesselMessage(Vessel vessel, string localizeTag)
+			=> vessel.vesselName + " " + Localizer.Format(localizeTag) + " " + vessel.mainBody.bodyDisplayName.Replace("^N", "");
+
+		internal static string BuildVesselMessage(string colour, Vessel vessel, string localizeTag)
+			=> string.Format("<color={0}>{1}</color> {2} {3}", colour, vessel.vesselName, Localizer.Format(localizeTag), vessel.mainBody.bodyDisplayName.Replace("^N", ""));
 
     }
 

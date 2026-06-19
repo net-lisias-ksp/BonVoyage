@@ -18,8 +18,6 @@
 using System;
 using System.Collections.Generic;
 
-using UnityEngine;
-
 using KSP.Localization;
 using KSP.UI.Screens;
 
@@ -183,15 +181,9 @@ namespace BonVoyage
                     BVModule.SetValue("distanceTravelled", distanceToTarget.ToString());
                     BVModule.SetValue("pathEncoded", "");
 
-                    // Dewarp
-                    if (Configuration.AutomaticDewarp)
-                    {
-                        if (TimeWarp.CurrentRate > 3) // Instant drop to 50x warp
-                            TimeWarp.SetRate(3, true);
-                        if (TimeWarp.CurrentRate > 0) // Gradual drop out of warp
-                            TimeWarp.SetRate(0, false);
-                        ScreenMessages.PostScreenMessage(vessel.vesselName + " " + Localizer.Format("#LOC_BV_VesselArrived") + " " + vessel.mainBody.bodyDisplayName.Replace("^N", ""), 5f);
-                    }
+					Tools.OptionalDewarpAndDo(
+							() => ScreenMessages.PostScreenMessage(Tools.BuildVesselMessage(vessel, "#LOC_BV_VesselArrived"), 5f)
+						);
 
                     NotifyArrival();
                 }
@@ -252,7 +244,7 @@ namespace BonVoyage
         {
             MessageSystem.Message message = new MessageSystem.Message(
                 Localizer.Format("#LOC_BV_Title_KerbalArrived"), // title
-                "<color=#74B4E2>" + vessel.vesselName + "</color> " + Localizer.Format("#LOC_BV_VesselArrived") + " " + vessel.mainBody.bodyDisplayName.Replace("^N", "") + ".\n<color=#AED6EE>"
+                Tools.BuildVesselMessage("#74B4E2", vessel, "#LOC_BV_VesselArrived") + ".\n<color=#AED6EE>"
                 + Localizer.Format("#LOC_BV_Control_Lat") + ": " + targetLatitude.ToString("F2") + "</color>\n<color=#AED6EE>" + Localizer.Format("#LOC_BV_Control_Lon") + ": " + targetLongitude.ToString("F2") + "</color>", // message
                 MessageSystemButton.MessageButtonColor.GREEN,
                 MessageSystemButton.ButtonIcons.COMPLETE
