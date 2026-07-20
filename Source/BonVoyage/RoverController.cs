@@ -375,6 +375,13 @@ namespace BonVoyage
         /// <returns></returns>
         private double GetAvailableEC_Batteries()
         {
+            // RealBattery integration: if installed, look at StoredCharge on RealBattery-enabled
+            // parts instead of plain ElectricCharge buffers, which on RB vessels are just a small
+            // instantaneous cache (a few units) and would make BV think the rover has no
+            // meaningful battery capacity at all.
+            if (Tools.AssemblyIsLoaded("RealBattery"))
+                return GetAvailableEC_RealBattery();
+
             double maxEC = 0;
 
             for (int i = 0; i < vessel.parts.Count; ++i)
@@ -385,6 +392,36 @@ namespace BonVoyage
             }
 
             return maxEC;
+        }
+
+        /// <summary>
+        /// RealBattery integration: sums StoredCharge.maxAmount (converted to EC-equivalent via
+        /// RealBatterySupport.EcPerSc) of all non-disabled parts carrying the RealBattery module.
+        /// Capacity is reported at nominal (undegraded) value on purpose: RealBattery's own
+        /// wear/BatteryLife derating is left to RealBattery's optional Harmony bridge, which also
+        /// credits wear for energy used this way. Keeps this integration's footprint here minimal.
+        /// </summary>
+        private double GetAvailableEC_RealBattery()
+        {
+            double maxSc = 0.0;
+            for (int i = 0; i < vessel.parts.Count; ++i)
+            {
+                Part part = vessel.parts[i];
+                if (!part.Modules.Contains("RealBattery"))
+                    continue;
+
+                PartModule rbModule = part.Modules["RealBattery"];
+                BaseField disabledField = rbModule.Fields["BatteryDisabled"];
+                if (disabledField != null && disabledField.GetValue(rbModule) is bool disabled && disabled)
+                    continue;
+
+                if (!part.Resources.Contains("StoredCharge"))
+                    continue;
+
+                maxSc += part.Resources["StoredCharge"].maxAmount;
+            }
+
+            return maxSc * RealBatterySupport.EcPerSc;
         }
 
 		#endregion

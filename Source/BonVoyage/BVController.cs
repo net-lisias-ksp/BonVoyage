@@ -617,6 +617,65 @@ namespace BonVoyage
                 return;
 
 			this.fuelEnergy.ProcessResources(this.resourceBroker);
+
+            // RealBattery integration: if we travelled as a rover and actually used the battery
+            // budget, drain that energy from StoredCharge on RealBattery-enabled parts. BV's own
+            // battery accounting (batteries.CurrentEC) is otherwise purely virtual — it never
+            // touches a real resource tank on its own.
+            if (Tools.AssemblyIsLoaded("RealBattery") && this is RoverController rover)
+                DrainRealBattery(rover);
+        }
+
+        /// <summary>
+        /// RealBattery integration: drains the EC deficit accumulated by the rover's virtual
+        /// battery accounting (MaxUsedEC - CurrentEC) from StoredCharge, pro-quota of capacity
+        /// across all non-disabled RealBattery parts so no single part is emptied first while
+        /// the rest of the bank sits untouched. Resets CurrentEC to MaxUsedEC afterwards so the
+        /// same deficit isn't drained again on a later vessel load (this method may run once per
+        /// physics load, not just once per completed trip).
+        /// </summary>
+        private void DrainRealBattery(RoverController rover)
+        {
+            if (!rover.batteries.Use || rover.batteries.MaxUsedEC <= 0.0)
+                return;
+
+            double ecUsed = rover.batteries.MaxUsedEC - rover.batteries.CurrentEC;
+            if (ecUsed <= 0.01)
+                return; // nothing to drain
+
+            double scToDrain = ecUsed / RealBatterySupport.EcPerSc;
+
+            double totalCapacity = 0.0;
+            List<PartResource> rbResources = new List<PartResource>();
+            for (int i = 0; i < vessel.parts.Count; ++i)
+            {
+                Part part = vessel.parts[i];
+                if (!part.Modules.Contains("RealBattery")) continue;
+
+                PartModule rbModule = part.Modules["RealBattery"];
+                BaseField disabledField = rbModule.Fields["BatteryDisabled"];
+                if (disabledField != null && disabledField.GetValue(rbModule) is bool disabled && disabled)
+                    continue;
+
+                if (!part.Resources.Contains("StoredCharge")) continue;
+
+                PartResource sc = part.Resources["StoredCharge"];
+                rbResources.Add(sc);
+                totalCapacity += sc.maxAmount;
+            }
+
+            if (totalCapacity <= 0.0)
+                return;
+
+            for (int i = 0; i < rbResources.Count; ++i)
+            {
+                PartResource sc = rbResources[i];
+                double share = sc.maxAmount / totalCapacity;
+                sc.amount = Math.Max(0.0, sc.amount - scToDrain * share);
+            }
+
+            // Anti-double-drain fix: this deficit has now been accounted for.
+            rover.batteries.CurrentEC = rover.batteries.MaxUsedEC;
         }
 
 
