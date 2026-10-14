@@ -65,6 +65,20 @@ namespace BonVoyage
         /// <param name="node"></param>
         private void SaveScenario(ConfigNode gameNode)
         {
+            // BonVoyage only starts at the Space Center. A save loaded straight into flight is saved
+            // before that, and throwing here aborts the whole save (and the scene change with it).
+            // Keep what was loaded until BonVoyage is up.
+            if (BonVoyage.Instance == null)
+            {
+                if (scenarioNode != null && scenarioNode != gameNode)
+                {
+                    gameNode.ClearNodes();
+                    foreach (ConfigNode controllerNode in scenarioNode.GetNodes("CONTROLLER"))
+                        gameNode.AddNode(controllerNode);
+                }
+                return;
+            }
+
             gameNode.ClearNodes();
 
 			foreach (BVController controller in BonVoyage.Instance.BVControllers.Values)
