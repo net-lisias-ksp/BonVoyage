@@ -31,7 +31,7 @@ namespace BonVoyage
     /// <summary>
     /// Mod's main class
     /// </summary>
-    [KSPAddon(KSPAddon.Startup.SpaceCentre, true)]
+    [KSPAddon(KSPAddon.Startup.FlightAndKSC, true)]
     public class BonVoyage : MonoBehaviour
     {
         #region Public properties
